@@ -19,7 +19,6 @@ import (
 	questionRepo "github.com/thanarat/qa-backend/feature/question/repository"
 	questionUsecase "github.com/thanarat/qa-backend/feature/question/usecase"
 
-	"github.com/joho/godotenv"
 	"github.com/labstack/echo/v4"
 	"github.com/labstack/echo/v4/middleware"
 	"gorm.io/driver/postgres"
@@ -28,9 +27,9 @@ import (
 
 func initDB() (*gorm.DB, error) {
 	// Load .env file
-	if err := godotenv.Load(); err != nil {
-		return nil, fmt.Errorf("error loading .env file: %v", err)
-	}
+	// if err := godotenv.Load(); err != nil {
+	// 	return nil, fmt.Errorf("error loading .env file: %v", err)
+	// }
 
 	// Get database connection details from environment variables
 	host := os.Getenv("POSTGRES_HOST")
