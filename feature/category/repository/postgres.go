@@ -1,6 +1,8 @@
 package repository
 
 import (
+	"fmt"
+
 	"github.com/thanarat/qa-backend/domain"
 	"github.com/thanarat/qa-backend/entity"
 	"gorm.io/gorm"
@@ -15,11 +17,13 @@ func NewCategoryRepo(db *gorm.DB) domain.CategoryRepo {
 }
 
 func (r *categoryRepository) GetAllCategories() ([]entity.Category, error) {
+	fmt.Println("[CategoryRepo.GetAllCategories]")
 	var categories []entity.Category
 	err := r.db.Find(&categories).Error
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println(categories)
 	return categories, nil
 }
 

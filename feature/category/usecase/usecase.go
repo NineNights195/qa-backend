@@ -1,6 +1,7 @@
 package usecase
 
 import (
+	"fmt"
 	"strconv"
 
 	"github.com/thanarat/qa-backend/domain"
@@ -16,6 +17,7 @@ func NewCategoryUsecase(categoryRepo domain.CategoryRepo) domain.CategoryUseCase
 }
 
 func (u *categoryUsecase) GetAllCategories() ([]entity.CategoryNoQuestion, error) {
+	fmt.Println("[CategoryUsecase.GetAllCategories]")
 	categories, err := u.categoryRepo.GetAllCategories()
 	if err != nil {
 		return nil, err

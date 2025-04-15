@@ -1,6 +1,7 @@
 package delivery
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -20,6 +21,7 @@ func NewHandler(e *echo.Group, u domain.CategoryUseCase) *Handler {
 }
 
 func (h *Handler) GetAllCategories(c echo.Context) error {
+	fmt.Println("[CategoryHandler.GetAllCategories]")
 	categories, err := h.usecase.GetAllCategories()
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{
